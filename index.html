@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Legacy Homes - Nền tảng quản lý và giao dịch bất động sản chuyên nghiệp">
+  <title>Legacy Homes - Bất Động Sản Chuyên Nghiệp</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #0a0f1e;
+      color: #e2e8f0;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      position: relative;
+      background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(201,168,76,0.08) 0%, transparent 60%),
+                  linear-gradient(180deg, #0a1628 0%, #0d1f3c 50%, #0a0f1e 100%);
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L60 30L30 60L0 30Z' fill='none' stroke='rgba(255,255,255,0.02)' stroke-width='0.5'/%3E%3C/svg%3E") repeat;
+      pointer-events: none;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 1rem;
+      border-radius: 100px;
+      background: rgba(201,168,76,0.1);
+      border: 1px solid rgba(201,168,76,0.25);
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #c9a84c;
+      margin-bottom: 2rem;
+      position: relative;
+      z-index: 1;
+    }
+    .badge-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: #c9a84c;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .logo {
+      width: 88px; height: 88px;
+      background: linear-gradient(135deg, #c9a84c, #e8c964);
+      border-radius: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 34px;
+      font-weight: 800;
+      color: #0a1628;
+      margin-bottom: 2rem;
+      box-shadow: 0 12px 40px rgba(201,168,76,0.3);
+      position: relative;
+      z-index: 1;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 1rem;
+      letter-spacing: -1px;
+      position: relative;
+      z-index: 1;
+    }
+    h1 span { color: #c9a84c; }
+
+    .subtitle {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: #94a3b8;
+      max-width: 520px;
+      line-height: 1.8;
+      margin-bottom: 3rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-group {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+      margin-bottom: 4rem;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.9rem 2rem;
+      border-radius: 14px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #c9a84c, #b8933f);
+      color: #0a1628;
+      box-shadow: 0 4px 20px rgba(201,168,76,0.3);
+    }
+    .btn-primary:hover {
+      box-shadow: 0 8px 30px rgba(201,168,76,0.45);
+      transform: translateY(-2px);
+    }
+    .btn-ghost {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #e2e8f0;
+    }
+    .btn-ghost:hover {
+      background: rgba(255,255,255,0.05);
+      border-color: rgba(255,255,255,0.4);
+    }
+
+    /* Features */
+    .features {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+    .feature {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 16px;
+      padding: 1.5rem;
+      width: 220px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+    }
+    .feature-icon {
+      font-size: 1.8rem;
+      margin-bottom: 0.75rem;
+    }
+    .feature h3 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 0.4rem;
+    }
+    .feature p {
+      font-size: 0.8rem;
+      color: #64748b;
+      line-height: 1.5;
+    }
+
+    /* Stats */
+    .stats {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      gap: 3rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 3rem;
+      padding: 2rem 0;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .stat h2 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #c9a84c;
+    }
+    .stat p {
+      font-size: 0.8rem;
+      color: #64748b;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.8rem;
+      color: #475569;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    @media (max-width: 640px) {
+      .features { flex-direction: column; align-items: center; }
+      .feature { width: 100%; max-width: 300px; }
+      .stats { gap: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <div class="badge"><span class="badge-dot"></span> Nền tảng BĐS toàn diện</div>
+    <div class="logo">LH</div>
+    <h1>Legacy <span>Homes</span></h1>
+    <p class="subtitle">
+      Nền tảng quản lý và giao dịch bất động sản chuyên nghiệp dành cho nhà môi giới.
+      Kết nối — Giao dịch — Phát triển bền vững.
+    </p>
+    <div class="cta-group">
+      <a href="https://crm.legacyhomes.com.vn" class="btn btn-primary">Truy cập CRM &#8599;</a>
+      <a href="https://crm.legacyhomes.com.vn/public-board" class="btn btn-ghost">Xem Bảng Hàng Chung</a>
+    </div>
+
+    <div class="features">
+      <div class="feature">
+        <div class="feature-icon">&#127968;</div>
+        <h3>Quản lý BĐS</h3>
+        <p>Đăng tin, quản lý bảng hàng riêng & chung, theo dõi lịch sử giao dịch</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">&#129309;</div>
+        <h3>Kết hợp Deal</h3>
+        <p>Kết nối sales nguồn & sales bán, chia hoa hồng minh bạch</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">&#128200;</div>
+        <h3>CRM Pipeline</h3>
+        <p>Theo dõi toàn bộ vòng đời giao dịch từ trao đổi đến hậu mãi</p>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><h2>2+</h2><p>Năm hoạt động</p></div>
+      <div class="stat"><h2>34</h2><p>Tỉnh thành</p></div>
+      <div class="stat"><h2>24/7</h2><p>Hỗ trợ</p></div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    &copy; 2026 Legacy Homes. Toàn bộ bản quyền thuộc về Legacy Homes.
+  </footer>
+</body>
+</html>
