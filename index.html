@@ -209,6 +209,24 @@
       color: #475569;
       border-top: 1px solid rgba(255,255,255,0.05);
     }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.75rem;
+    }
+    .footer-links a {
+      color: #94a3b8;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover {
+      color: #c9a84c;
+    }
+    .footer-sep {
+      color: #334155;
+    }
 
     @media (max-width: 640px) {
       .features { flex-direction: column; align-items: center; }
@@ -257,7 +275,14 @@
   </section>
 
   <footer class="footer">
-    &copy; 2026 Legacy Homes. Toàn bộ bản quyền thuộc về Legacy Homes.
+    <nav class="footer-links">
+      <a href="https://legacyhomes.com.vn">Trang chủ</a>
+      <span class="footer-sep">|</span>
+      <a href="https://crm.legacyhomes.com.vn/privacy/app">Chính sách bảo mật</a>
+      <span class="footer-sep">|</span>
+      <a href="https://crm.legacyhomes.com.vn">CRM</a>
+    </nav>
+    <p>&copy; 2026 Legacy Homes. Toàn bộ bản quyền thuộc về Legacy Homes.</p>
   </footer>
 </body>
 </html>
